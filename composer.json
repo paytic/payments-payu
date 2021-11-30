@@ -1,0 +1,34 @@
+{
+  "name": "paytic/payments-payu",
+  "type": "library",
+  "license": "MIT",
+  "description": "Payments module for bytic library for payu",
+  "keywords": [],
+  "homepage": "https://github.com/paytic/payments-payu",
+  "authors": [
+    {
+      "name": "Gabriel Solomon",
+      "email": "hello@gabrielsolomon.ro"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Paytic\\Payments\\Payu\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Paytic\\Payments\\Payu\\Tests\\": "tests/src",
+      "Paytic\\Payments\\Payu\\Tests\\Fixtures\\": "tests/fixtures"
+    }
+  },
+  "require": {
+    "php": "^7.2|^8.0",
+    "paytic/omnipay-payu": "^3.0"
+  },
+  "require-dev": {
+    "ext-zlib": "*",
+    "bytic/payments": "^1.0",
+    "paytic/payments-tests": "^1.0"
+  }
+}
