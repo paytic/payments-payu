@@ -19,13 +19,17 @@ class CompletePurchaseRequest extends AbstractCompletePurchaseRequest
      */
     public function isValidNotification()
     {
-        if ($this->hasGet('ctrl')) {
-            if ($this->validateModel()) {
-                return parent::isValidNotification();
-            }
+        if (false == $this->hasGet('ctrl')) {
+            return false;
+        }
+        if (false == $this->validateModel()) {
+            return false;
         }
 
-        return false;
+        $model = $this->getModel();
+        $this->updateParametersFromPurchase($model);
+
+        return parent::isValidNotification();
     }
 
     /**

@@ -30,5 +30,11 @@
     "ext-zlib": "*",
     "bytic/payments": "^1.0",
     "paytic/payments-tests": "^1.0"
+  },
+  "config": {
+    "allow-plugins": {
+      "php-http/discovery": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
   }
 }

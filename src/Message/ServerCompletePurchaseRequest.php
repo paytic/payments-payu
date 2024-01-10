@@ -20,16 +20,16 @@ class ServerCompletePurchaseRequest extends AbstractServerCompletePurchaseReques
      */
     public function isValidNotification()
     {
-        if ($this->hasPOST('REFNOEXT')) {
-            if ($this->validateModel()) {
-                $model = $this->getModel();
-                $this->updateParametersFromPurchase($model);
-
-                return parent::isValidNotification();
-            }
+        if (false == $this->hasPOST('REFNOEXT')) {
+            return false;
         }
+        if (false == $this->validateModel()) {
+            return false;
+        }
+        $model = $this->getModel();
+        $this->updateParametersFromPurchase($model);
 
-        return false;
+        return parent::isValidNotification();
     }
 
     /**
