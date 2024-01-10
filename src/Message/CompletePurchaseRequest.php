@@ -54,27 +54,4 @@ class CompletePurchaseRequest extends AbstractCompletePurchaseRequest
 
         return parent::parseNotification();
     }
-
-
-    /**
-     * @inheritdoc
-     */
-    protected function generateCtrl()
-    {
-        return $this->getModelCtrl();
-    }
-
-    /**
-     * @return string
-     */
-    public function getModelCtrl()
-    {
-        /** @var IsPurchasableModelTrait $model */
-        $model = $this->getModel();
-        /** @var Gateway $gateway */
-        $gateway = $model->getPaymentMethod()->getType()->getGateway();
-        $purchaseRequest = $gateway->purchaseFromModel($model);
-
-        return $purchaseRequest->getCtrl();
-    }
 }
